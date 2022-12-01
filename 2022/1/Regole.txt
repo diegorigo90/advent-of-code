@@ -1,0 +1,37 @@
+--- Giorno 1: Conteggio delle calorie ---
+Le renne di Babbo Natale in genere mangiano cibo normale per le renne, ma hanno bisogno di molta energia magica per consegnare i regali a Natale. Per questo, il loro snack preferito è un tipo speciale di carambola che cresce solo nelle profondità della giungla. Gli Elfi ti hanno portato nella loro spedizione annuale al boschetto dove cresce il frutto.
+
+Per fornire abbastanza energia magica, la spedizione deve recuperare un minimo di cinquanta stelle entro il 25 dicembre. Anche se gli Elfi ti assicurano che il boschetto è pieno di frutti, decidi di afferrare qualsiasi frutto incontri lungo la strada, per ogni evenienza.
+
+Raccogli le stelle risolvendo enigmi. Due puzzle saranno resi disponibili ogni giorno nel calendario dell'Avvento; il secondo puzzle viene sbloccato quando completi il ​​primo. Ogni puzzle garantisce una stella . Buona fortuna!
+
+La giungla deve essere troppo ricoperta di vegetazione e difficile da navigare con i veicoli o dall'accesso aereo; la spedizione degli Elfi tradizionalmente si svolge a piedi. Mentre le tue barche si avvicinano alla terraferma, gli Elfi iniziano a fare l'inventario delle loro provviste. Una considerazione importante è il cibo, in particolare il numero di calorie che ogni elfo sta trasportando (il tuo input del puzzle).
+
+Gli Elfi annotano a turno il numero di Calorie contenute nei vari pasti, merendine, razioni, ecc. che hanno portato con sé, un elemento per riga. Ogni Elfo separa il proprio inventario dall'inventario dell'Elfo precedente (se presente) con una riga vuota.
+
+Ad esempio, supponiamo che gli Elfi finiscano di scrivere le calorie dei loro oggetti e finiscano con il seguente elenco:
+
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+Questo elenco rappresenta le calorie del cibo trasportato da cinque Elfi:
+
+Il primo Elfo trasporta cibo con 1000, 2000, e 3000Calorie, per un totale di 6000Calorie.
+Il secondo elfo trasporta un alimento con 4000calorie.
+Il terzo elfo trasporta cibo 5000e 6000calorie, per un totale di 11000calorie.
+Il quarto Elfo trasporta cibo con 7000, 8000, e 9000Calorie, per un totale di 24000Calorie.
+Il quinto elfo trasporta un alimento con 10000calorie.
+Nel caso in cui gli Elfi abbiano fame e abbiano bisogno di spuntini extra, devono sapere a quale Elfo chiedere: vorrebbero sapere quante Calorie ha l'Elfo che ne porta il maggior numero . Nell'esempio sopra, questo è 24000(portato dal quarto Elfo).
+
+Trova l'Elfo che porta più calorie. Quante calorie totali sta trasportando quell'Elfo?
