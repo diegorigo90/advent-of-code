@@ -12,13 +12,8 @@ for line in Lines:
     search = re.search('(.*)-(.*),(.*)-(.*)', text)
     A = [int(search.group(1)), int(search.group(2))]
     B = [int(search.group(3)), int(search.group(4))]
-    AcontainsB = A[0] <= B[0] and A[1] >= B[1]
-    BcontainsA = B[0] <= A[0] and B[1] >= A[1]
-    if (AcontainsB):
-        print(f"{A[0]} - {A[1]} / {B[0]} - {B[1]} -> A contains B")
-        count += 1
-    elif (BcontainsA):
-        print(f"{A[0]} - {A[1]} / {B[0]} - {B[1]} -> B contains A")
+    notOverlapped = B[0] > A[1] or B[1] < A[0]
+    if (not notOverlapped):
         count += 1
     
 
