@@ -12,15 +12,16 @@ for j in range(1,N+1):
     config.append([])
 
 for line in Lines:
-    if (" 1 " in line):
+    if (" 1   2   3" in line):
         topInfo = False
+        for i in range(0,len(config)):
+            print(f"{config[i]}")
 
     if (topInfo):
         for i in range(0,N):
             el = line[1+4*i]
             if el.strip() != "":
                 config[i].insert(0,el)
-                print(f"{i} -> {el} -> {config[i]}")
     else:
         move = line.strip()
         search = re.search('move (.*) from (.*) to (.*)', line)
@@ -29,9 +30,10 @@ for line in Lines:
             fromIndex = int(search.group(2))
             toIndex = int(search.group(3))
             print(f"Moving {qty} boxes from {fromIndex} to {toIndex}")
-            for box in range(0,qty):
-                removed = config[fromIndex-1].pop()
-                config[toIndex-1].append(removed)
+            columnFrom = config[fromIndex-1]
+            removed = columnFrom[len(columnFrom)-qty:]
+            del columnFrom[len(columnFrom)-qty:]
+            config[toIndex-1] += removed
 
 solution = ""
 for i in range(0,N):
