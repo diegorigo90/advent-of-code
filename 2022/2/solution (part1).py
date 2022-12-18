@@ -1,7 +1,7 @@
 import os
 
 location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-file1 = open(location + '\input.txt', 'r')
+file1 = open(location + '\\input.txt', 'r')
 Lines = file1.readlines()
 
 map1 = {
@@ -16,9 +16,9 @@ map2 = {
 }
 
 matrix=[
-    [3,6,0],
-    [0,3,6],
-    [6,0,3]
+    [3, 6, 0],
+    [0, 3, 6],
+    [6, 0, 3]
 ]
 
 points = 0

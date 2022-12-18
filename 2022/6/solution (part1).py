@@ -1,7 +1,7 @@
 import os
 
 location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-f = open(location + '\input.txt',"r")
+f = open(location + '\\input.txt', "r")
 i = 0
 array = []
 while True:

@@ -5,14 +5,14 @@ f = open(location + '\\input.txt', "r")
 lines = f.readlines()
 
 
-def coord(coordstring):
+def get_coord(coordstring):
     return [int(z) for z in coordstring.split(",")]
 
 
 def generate_points(a, b):
     array = []
-    x1, y1 = coord(a)
-    x2, y2 = coord(b)
+    x1, y1 = get_coord(a)
+    x2, y2 = get_coord(b)
     if x1 != x2 and y1 == y2:
         for xval in range(min(x1, x2), max(x1, x2) + 1):
             array.append(str(xval) + "," + str(y1))
@@ -33,7 +33,7 @@ for line in lines:
 
     for i in range(1, len(points)):
         second_point = points[i]
-        x, y = coord(second_point)
+        x, y = get_coord(second_point)
         maxHeight = max(maxHeight, y)
         line_points = generate_points(firstpoint, second_point)
         structurePointsSet.update(line_points)
@@ -47,28 +47,28 @@ startingpoint = "500,0"
 
 
 def compute_next_position(coord):
-    x, y = coord(coord)
-    new_coord = str(x) + "," + str(y + 1)
-    if y > abisso:
+    _x, _y = get_coord(coord)
+    new_coord = str(_x) + "," + str(_y + 1)
+    if _y > abisso:
         return None
 
-    if not new_coord in structurePointsSet:
+    if new_coord not in structurePointsSet:
         return new_coord
 
-    left_down = str(x - 1) + "," + str(y + 1)
-    if not left_down in structurePointsSet:
+    left_down = str(_x - 1) + "," + str(_y + 1)
+    if left_down not in structurePointsSet:
         return left_down
 
-    right_down = str(x + 1) + "," + str(y + 1)
+    right_down = str(_x + 1) + "," + str(_y + 1)
     if right_down not in structurePointsSet:
         return right_down
 
     return ""
 
 
-trovato_abisso = False
+found_roof = False
 count = 0
-while not trovato_abisso:
+while not found_roof:
     point = startingpoint
     while True:
         next = compute_next_position(point)
@@ -78,7 +78,7 @@ while not trovato_abisso:
             break
         elif next is None:
             # print(f"TROVATO ABISSO: {point}")
-            trovato_abisso = True
+            found_roof = True
             break
         point = next
     count += 1

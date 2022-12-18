@@ -1,7 +1,7 @@
 import os
 
 location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-file1 = open(location + '\input.txt', 'r')
+file1 = open(location + '\\input.txt', 'r')
 Lines = file1.readlines()
 val = 0
 maxVal = 0

@@ -1,12 +1,9 @@
-import numpy as np
-import time
-import math
 import re
 
-f=open("/storage/emulated/0/Python/Day 10/input.txt","r")
+f = open("/storage/emulated/0/Python/Day 10/input.txt", "r")
 
 total = 0
-checkCycles = [20,60,100,140,180,220]
+checkCycles = [20, 60, 100, 140, 180, 220]
 
 cycle = 0
 value = 1
@@ -15,17 +12,17 @@ for line in f.readlines():
 	text = line.strip()
 	noop = re.search("noop", text)
 	addx = re.search("addx (.*)", text)
-	if noop != None:
+	if noop is not None:
 		operations.append(0)
-	elif addx != None:
+	elif addx is not None:
 		val = int(addx.group(1))
 		operations.append(0)
 		operations.append(val)
 
 screen = []
-for i in range(0,6):
+for i in range(0, 6):
 	line = []
-	for j in range(0,40):
+	for j in range(0, 40):
 		line.append("")
 	screen.append(line)
 
@@ -41,5 +38,5 @@ for op in operations:
 	screen[i][j] = txt
 	value += op
 
-for i in range(0,6):
+for i in range(0, 6):
 	print("".join(screen[i]))

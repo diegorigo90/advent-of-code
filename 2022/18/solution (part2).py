@@ -41,8 +41,8 @@ points_coord = [get_point(p) for p in points]
 surface = 0
 
 
-def get_nearest_points(pt):
-    [_x, _y, _z] = get_point(pt)
+def get_nearest_points(_pt):
+    [_x, _y, _z] = get_point(_pt)
     _points = []
     if min_x-1 <= _x+1 <= max_x+1:
         _points.append(tostring(_x+1, _y, _z))
@@ -72,13 +72,12 @@ while True:
         near_points = get_nearest_points(pt)
         touch_surface = False
         for pt1 in near_points:
-            if pt1 in visited:
-                pt1 # do nothing
-            elif pt1 in points:
-                touch_surface = True
-                touched_surfaces += 1
-            else:
-                next_visit.add(pt1)
+            if pt1 not in visited:
+                if pt1 in points:
+                    touch_surface = True
+                    touched_surfaces += 1
+                else:
+                    next_visit.add(pt1)
         if touch_surface:
             surface.add(pt)
         visited.add(pt)

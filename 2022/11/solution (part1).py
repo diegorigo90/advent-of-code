@@ -2,17 +2,18 @@ import os
 import re
 import operator
 import math
+
 ops = {
-    '+' : operator.add,
-    '-' : operator.sub,
-    '*' : operator.mul,
-    '/' : operator.truediv,
-    '%' : operator.mod,
-    '^' : operator.xor,
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv,
+    '%': operator.mod,
+    '^': operator.xor,
 }
 
 location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-f = open(location + '\input.txt',"r")
+f = open(location + '\\input.txt', "r")
 
 monkeys = []
 
@@ -21,28 +22,28 @@ while True:
     text = f.readline().strip()
     if not text:
         break
-    monkeyRegex = re.match("Monkey (.*):.*",text)
+    monkeyRegex = re.match("Monkey (.*):.*", text)
     monkey['number'] = monkeyRegex.group(1)
     print(f"Reading monkey number {monkey['number']}")
-    
+
     text = f.readline().strip()
-    startingItemsRegex = re.match("Starting items: (.*)",text)
+    startingItemsRegex = re.match("Starting items: (.*)", text)
     monkey['items'] = startingItemsRegex.group(1).split(", ")
-    
+
     text = f.readline().strip()
-    operationRegex = re.match("Operation: new = (.*)",text)
+    operationRegex = re.match("Operation: new = (.*)", text)
     monkey['operation'] = operationRegex.group(1)
-    
+
     text = f.readline().strip()
-    testRegex = re.match("Test: divisible by (.*)",text)
+    testRegex = re.match("Test: divisible by (.*)", text)
     monkey['test'] = testRegex.group(1)
-    
+
     text = f.readline().strip()
-    trueRegex = re.match("If true: throw to monkey (.*)",text)
+    trueRegex = re.match("If true: throw to monkey (.*)", text)
     monkey['trueCase'] = trueRegex.group(1)
-    
+
     text = f.readline().strip()
-    falseRegex = re.match("If false: throw to monkey (.*)",text)
+    falseRegex = re.match("If false: throw to monkey (.*)", text)
     monkey['falseCase'] = falseRegex.group(1)
 
     monkey['inspections'] = 0
@@ -51,8 +52,7 @@ while True:
 
     monkeys.append(monkey)
 
-
-for round in range(0,20):
+for round_item in range(0, 20):
     for monkey in monkeys:
         for item in monkey['items']:
             currValue = int(item)
@@ -63,11 +63,11 @@ for round in range(0,20):
             operator = ops[op[1]]
             val1 = currValue if op[0] == "old" else int(op[0])
             val2 = currValue if op[2] == "old" else int(op[2])
-            newValue = operator(val1,val2)
+            newValue = operator(val1, val2)
 
             # Si abbassa il livello di preoccupazione
             newValue = math.floor(newValue / 3)
-            
+
             # Verifica criterio
             divisibility = int(monkey['test'])
             test = newValue % divisibility == 0
@@ -80,15 +80,17 @@ for round in range(0,20):
                 newMonkey = monkeys[monkeyToThrow]
                 newMonkey['items'].append(str(newValue))
         monkey['items'] = []
-    
+
     print()
-    print(f"ROUND {round+1}")
+    print(f"ROUND {round_item + 1}")
     for monkey in monkeys:
         print(f"Monkey {monkey['number']}-> {monkey['items']}")
 
-def sortingFunc(obj):
+
+def sort_function(obj):
     return obj['inspections']
 
-monkeys.sort(key=sortingFunc, reverse=True)
+
+monkeys.sort(key=sort_function, reverse=True)
 affari = monkeys[0]['inspections'] * monkeys[1]['inspections']
 print(f"AFFARI: {affari}")

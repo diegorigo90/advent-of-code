@@ -1,7 +1,7 @@
 import os
 
 location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-file1 = open(location + '\input.txt', 'r')
+file1 = open(location + '\\input.txt', 'r')
 Lines = file1.readlines()
 
 map1 = {
@@ -20,10 +20,10 @@ victoryMap = {
     "Y": 3,
     "Z": 6
 }
-matrix=[
-    ["Z","X","Y"],
-    ["X","Y","Z"],
-    ["Y","Z","X"]
+matrix = [
+    ["Z", "X", "Y"],
+    ["X", "Y", "Z"],
+    ["Y", "Z", "X"]
 ]
 
 points = 0
