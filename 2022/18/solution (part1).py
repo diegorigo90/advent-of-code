@@ -36,6 +36,7 @@ def count_nears(_point, _points):
             count += 1
     return count
 
+
 surface = 0
 
 for point in points:
